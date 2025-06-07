@@ -42,26 +42,26 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
 - Deploy the code in Lambda
   
 
-![alt](Screenshots/15_lambda_functions.jpg)
 ![alt](Screenshots/17_Lambda_instance_created.jpg)
 ![alt](Screenshots/17_ec2_created_on_console.jpg)
 
+![alt](Screenshots/17_console_ui.jpg.jpg)
+![alt](Screenshots/16_Email_notification_disk_usage.jpg)
+![alt](Screenshots/16_lambda_UI.jpg)
+
+![alt](Screenshots/16_architecture.jpg)
+![alt](Screenshots/15_s3_before.jpg)
+![alt](Screenshots/15_s3_after.jpg)
+
+![alt](Screenshots/15_lambda_functions.jpg)
+![alt](Screenshots/1_Lambda_UI.jpg)
+![alt](Screenshots/1_aws_console_before.jpg)
+
+![alt](Screenshots/1_aws_console_AFTER.jpg)
 
 
 
-![alt](Screenshot/17_ec2_created_on_console.jpg)
 
-![alt](Screenshot/17_console_ui.jpg)
-![alt](Screenshot/16_Email_notification_disk_usage.jpg)
-![alt](Screenshot/16_lambda_UI.jpg)
-![alt](Screenshot/16_architecture.jpg)
-![alt](Screenshot/15_s3_before.jpg)
-![alt](Screenshot/15_s3_after.jpg)
-![alt](Screenshot/15_lambda_functions.jpg)
-![alt](Screenshot/1_Lambda_UI.jpg)
-![alt](Screenshot/1_aws_console_before.jpg)
-![alt](Screenshot/1_aws_console_AFTER.jpg)
-![alt](Screenshot/1_aws_console_AFTER.jpg)
 
 
 
