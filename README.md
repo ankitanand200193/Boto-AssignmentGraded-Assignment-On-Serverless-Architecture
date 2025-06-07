@@ -41,9 +41,13 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
 
 - Deploy the code in Lambda
   
-![alt](Screenshot/17_Lambda_instance_created.jpg)
 
 ![alt](Screenshots/15_lambda_functions.jpg)
+![alt](Screenshots/17_Lambda_instance_created.jpg)
+![alt](Screenshots/17_ec2_created_on_console.jpg)
+
+
+
 
 ![alt](Screenshot/17_ec2_created_on_console.jpg)
 
