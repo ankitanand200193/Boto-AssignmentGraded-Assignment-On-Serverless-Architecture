@@ -54,7 +54,8 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
 ![alt](Screenshot/1_aws_console_before)
 ![alt](Screenshot/1_aws_console_AFTER)
 ![alt](Screenshot/1_aws_console_AFTER)
-![image](https://github.com/user-attachments/assets/bba8feca-b5ea-457b-9954-e165a7158c46)
+
+
 
 
 
