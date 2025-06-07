@@ -40,6 +40,23 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
   - Log affected instance IDs
 
 - Deploy the code in Lambda
+  
+![alt](Screenshot/17_Lambda_instance_created)
+![alt](Screenshot/17_ec2_created_on_console)
+![alt](Screenshot/17_console_ui)
+![alt](Screenshot/16_Email_notification_disk_usage)
+![alt](Screenshot/16_lambda_UI)
+![alt](Screenshot/16_architecture)
+![alt](Screenshot/15_s3_before)
+![alt](Screenshot/15_s3_after)
+![alt](Screenshot/15_lambda_functions)
+![alt](Screenshot/1_Lambda_UI)
+![alt](Screenshot/1_aws_console_before)
+![alt](Screenshot/1_aws_console_AFTER)
+![alt](Screenshot/1_aws_console_AFTER)
+![image](https://github.com/user-attachments/assets/bba8feca-b5ea-457b-9954-e165a7158c46)
+
+
 
 ## Testing
 1. Open Lambda Console:
