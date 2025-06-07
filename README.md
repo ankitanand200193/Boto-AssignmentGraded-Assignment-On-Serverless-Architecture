@@ -330,4 +330,4 @@ Example:
 3. Create Lambda function
 4. Upload test files
 5. Run Lambda function
-6. Verify results in S3 bucket
+6. Verify results in the S3 bucket
