@@ -195,3 +195,139 @@ df -h
    - Lambda Role: Allows Lambda to use SSM and SNS
    - EC2 Role: Allows EC2 to communicate with SSM
    - Like security passes/badges that allow services to work together
+  
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+# Assignment #17: EC2 Instance Restore from Snapshot - Lambda Function
+
+A simple AWS Lambda function to restore EC2 instances from their most recent snapshots.
+
+## IAM Role Setup
+
+1. Go to IAM Console
+   ```
+   https://console.aws.amazon.com/iam/
+   ```
+
+2. Create Role:
+   - Click "Roles" → "Create role"
+   - Select "AWS service" and choose "Lambda"
+   - Click "Next"
+
+3. Attach Policies:
+   - Search and select:
+     - "AWSLambdaBasicExecutionRole"
+     - "AmazonEC2FullAccess"
+   - Click "Next"
+
+4. Name the Role:
+   - Role name: "EC2SnapshotRestoreRole"
+   - Description: "Allows Lambda to restore EC2 from snapshots"
+   - Click "Create role"
+
+## Lambda Function
+
+1. Create Function:
+   - Go to Lambda Console
+   - Click "Create function"
+   - Name: "EC2RestoreFromSnapshot"
+   - Runtime: Python 3.12
+   - Role: Select "EC2SnapshotRestoreRole"
+
+2. Add the Code
+
+## Usage
+
+1. Update Instance IDs:
+   - Replace instance IDs in the code with your own
+   ```python
+   instance_ids = ['your-instance-id-1']
+   ```
+
+2. Deploy:
+   - Click "Deploy" in Lambda console
+
+3. Test:
+   - Click "Test"
+   - Create new test event with empty JSON `{}`
+   - Run test
+
+## Notes
+
+- Function creates t2.micro instances by default
+- Uses default VPC and security group
+- Creates instances in the first available AZ
+- Names instances with pattern: "Restored-{original-id}-{timestamp}"
+- Requires snapshots to be tagged with original instance ID
+
+## Troubleshooting
+
+Common errors:
+- "No snapshots found": Check if snapshots exist and are properly tagged
+- "VPC not found": Ensure default VPC exists in the region
+- "Permission denied": Verify IAM role has correct permissions
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Assignment #15 : S3 Log Cleanup Lambda Function
+
+## Overview
+This project implements an AWS Lambda function that automatically cleans up log files in an S3 bucket based on the date in their filenames. Files from previous years are automatically deleted while current year files are retained.
+
+## Components
+- **AWS Lambda**: Executes the cleanup logic
+- **Amazon S3**: Stores the log files
+- **IAM Role**: Provides necessary permissions for Lambda to interact with S3
+
+## Setup Instructions
+
+### 1. S3 Bucket Creation
+```bash
+# Create an S3 bucket for storing logs
+Bucket Name: demo-logs-cleanup-2025-ankit
+Region: ap-south-1
+```
+
+### 2. IAM Role Configuration
+Create an IAM role with the following policies:
+- AWSLambdaBasicExecutionRole
+- AmazonS3FullAccess
+
+### 3. Lambda Function Setup
+- **Name**: S3LogCleanup
+- **Runtime**: Python 3.13
+- **Handler**: lambda_handler
+- **Memory**: 128 MB
+- **Timeout**: 3 minutes
+- **Role**: S3LogCleanupRole
+
+## Testing
+
+### Sample Log Files
+Create test log files following this naming convention:
+```
+log-YYYY-MM-DD.txt
+```
+
+Example:
+- log-2023-01-15.txt
+- log-2023-12-15.txt
+- log-2024-01-20.txt
+- log-2024-02-14.txt
+
+### Expected Results
+- Files from 2023 will be deleted
+- Files from 2024 will be retained
+
+## Deployment Steps
+1. Create S3 bucket
+2. Create IAM role
+3. Create Lambda function
+4. Upload test files
+5. Run Lambda function
+6. Verify results in S3 bucket
