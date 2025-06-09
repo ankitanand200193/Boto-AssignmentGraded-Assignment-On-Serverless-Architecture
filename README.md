@@ -28,7 +28,7 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
    - Click "Create role"
 
 ### Create Lambda function:
-   - Use Python 3.x runtime
+   - Use Python 3.13 runtime
    - Assign IAM role
 
 ## Lambda Function
@@ -40,33 +40,6 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
   - Log affected instance IDs
 
 - Deploy the code in Lambda
-  
-
-![alt](Screenshots/17_Lambda_instance_created.jpg)
-![alt](Screenshots/17_ec2_created_on_console.jpg)
-
-![alt](Screenshots/17_console_ui.jpg)
-![alt](Screenshots/16_Email_notification_disk_usage.jpg)
-![alt](Screenshots/16_lambda_UI.jpg)
-
-![alt](Screenshots/16_architecture.jpg)
-![alt](Screenshots/15_s3_before.jpg)
-![alt](Screenshots/15_s3_after.jpg)
-
-![alt](Screenshots/15_lambda_functions.jpg)
-![alt](Screenshots/1_Lambda_UI.jpg)
-![alt](Screenshots/1_aws_console_before.jpg)
-
-![alt](Screenshots/1_aws_console_AFTER.jpg)
-
-
-
-
-
-
-
-
-
 
 ## Testing
 1. Open Lambda Console:
@@ -78,17 +51,29 @@ Automatically manage EC2 instances based on tags using AWS Lambda.
    - Click "Test" button
    OR
    - Click "Configure test event" if first time
+     
+### Lambda UI
+
+![alt](Screenshots/1_Lambda_UI.jpg)
+
+#### AWS Console Before
+
+![alt](Screenshots/1_aws_console_before.jpg)
+
+#### AWS console After
+
+![alt](Screenshots/1_aws_console_AFTER.jpg)
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Assignment #16: EC2 Disk Space Monitoring System
 
 A serverless solution to monitor EC2 instance disk space utilization and send alerts when usage exceeds 85%.
 
 ## Architecture Overview
-![Architecture Diagram]
-[Include the ASCII diagram we discussed earlier]
+
+![alt](Screenshots/16_architecture.jpg)
 
 ## Components
 1. **Lambda Function**: Main controller that orchestrates disk space monitoring
@@ -140,7 +125,7 @@ A serverless solution to monitor EC2 instance disk space utilization and send al
 ### 4. Lambda Function Setup
 1. Create new Lambda function
 2. Configure:
-   - Runtime: Python 3.9
+   - Runtime: Python 3.13
    - Architecture: x86_64
    - Role: Lambda-EC2-DiskSpace-Monitor
 3. Set Environment Variables:
@@ -187,6 +172,15 @@ sudo dd if=/dev/zero of=/large_file bs=1M count=5000
 # Check disk usage again
 df -h
 ```
+
+#### Lambda Console:
+![alt](Screenshots/16_lambda_UI.jpg)
+
+
+#### Gmail disk alert:
+
+![alt](Screenshots/16_Email_notification_disk_usage.jpg)
+
 
 ### 7. Notes
 
@@ -282,6 +276,18 @@ A simple AWS Lambda function to restore EC2 instances from their most recent sna
    - Create new test event with empty JSON `{}`
    - Run test
 
+## Results
+
+#### Lambda Console:
+
+![alt](Screenshots/17_Lambda_instance_created.jpg)
+
+
+#### AWS console
+
+![alt](Screenshots/17_ec2_created_on_console.jpg)
+
+
 ## Notes
 
 - Function creates t2.micro instances by default
@@ -310,6 +316,14 @@ This project implements an AWS Lambda function that automatically cleans up log 
 - **AWS Lambda**: Executes the cleanup logic
 - **Amazon S3**: Stores the log files
 - **IAM Role**: Provides necessary permissions for Lambda to interact with S3
+
+## Deployment Steps
+1. Create S3 bucket
+2. Create IAM role
+3. Create Lambda function
+4. Upload test files
+5. Run Lambda function
+6. Verify results in the S3 bucket
 
 ## Setup Instructions
 
@@ -347,14 +361,17 @@ Example:
 - log-2024-01-20.txt
 - log-2024-02-14.txt
 
+#### Lambda Console
+
+![alt](Screenshots/15_lambda_functions.jpg)
+
 ### Expected Results
 - Files from 2023 will be deleted
 - Files from 2024 will be retained
 
-## Deployment Steps
-1. Create S3 bucket
-2. Create IAM role
-3. Create Lambda function
-4. Upload test files
-5. Run Lambda function
-6. Verify results in the S3 bucket
+#### S3 Before 
+
+![alt](Screenshots/15_s3_before.jpg)
+
+#### S3 After
+![alt](Screenshots/15_s3_after.jpg)
